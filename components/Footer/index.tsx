@@ -4,11 +4,6 @@ import { FooterStyle } from './FooterStyle';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { Picker } from '@react-native-picker/picker';
 
-interface footerProps {
-    
-}
-
-
 
 export function Footer() {
         const languages: { label: string, value: string }[] = [
