@@ -1,18 +1,26 @@
+import React from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 import { GlobalStyle } from "./Global/GlobalStyle";
-import React from "react";
 import { CardForm } from "./components/CardForm/index";
-import { InputForm } from "./components/InputForm/index";
 import { Header } from "./components/Header/index";
+import { ButtonForm } from "./components/ButtonForm";
+import barcarrousel from "../P1_CrunchRoll/assets/img/barcarrousel.png";
+
+// Import dos ícones, com tratamento de fallback para View vazia caso o ícone esteja indefinido
 import { SiCrunchyroll } from "react-icons/si";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoSearchSharp } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { ButtonForm } from "./components/ButtonForm";
 import { IoPlayOutline } from "react-icons/io5";
 import { BsBookmark } from "react-icons/bs";
-import { Footer } from "./components/Footer";
-import barcarrousel from "../P1_CrunchRoll/assets/img/barcarrousel.png";
+
+// Definindo fallback para cada ícone
+const CrunchyrollIcon = SiCrunchyroll || "View";
+const HamburgerMenuIcon = RxHamburgerMenu || "View";
+const SearchIcon = IoSearchSharp || "View";
+const DropdownIcon = IoMdArrowDropdown || "View";
+const PlayIcon = IoPlayOutline || "View";
+const BookmarkIcon = BsBookmark || "View";
 
 export default function App() {
     return (
@@ -21,31 +29,39 @@ export default function App() {
                 <Header
                     containerStyle={GlobalStyle.header}
                     text=""
-                    nav={<RxHamburgerMenu />}
-                    icon={<SiCrunchyroll style={{ fontSize: 28, position: "absolute", left: 90, color: "#ff640a" }} />}
-                    search={<IoSearchSharp />}
+                    nav={<HamburgerMenuIcon />}
+                    icon={<CrunchyrollIcon style={{ fontSize: 28, position: "absolute", left: 90, color: "#ff640a" }} />}
+                    search={<SearchIcon />}
                     photo={<Image source={{ uri: "https://i.pinimg.com/736x/7c/0f/4c/7c0f4c5a46e55ef4ac490d392d56d49f.jpg" }} style={{ width: 32, height: 32, borderRadius: 50 }} />}
-                    arrowIcon={<IoMdArrowDropdown />} />
+                    arrowIcon={<DropdownIcon />}
+                />
                 <CardForm key={1}
                     containerStyle={GlobalStyle.containerCardPhoto}
                     form={[
                         <Image key={"img"} source={{ uri: "https://store.crunchyroll.com/on/demandware.static/-/Sites-crunchyroll-master-catalog/default/dw8b062149/Home%20Video/9781974751655/9781974751655_1.jpg" }} style={GlobalStyle.CardImage} />
-                    ]} />
+                    ]}
+                />
+
                 <View key={2} style={GlobalStyle.ContainerPlay}>
                     <CardForm key={3}
                         containerStyle={GlobalStyle.watchButton}
-                        form={[<IoPlayOutline key={"IconButton"} style={GlobalStyle.PlayIcon} />,
-                        <ButtonForm key={"ButtonForm"} title="COMEÇAR A ASSISTIR T1 E1" onPress={() => console.log("Entrou")} />
-                        ]} />
+                        form={[
+                            <PlayIcon key={"IconButton"} style={GlobalStyle.PlayIcon} />,
+                            <ButtonForm key={"ButtonForm"} title="COMEÇAR A ASSISTIR T1 E1" onPress={() => console.log("Entrou")} />
+                        ]}
+                    />
                     <CardForm key={4}
                         containerStyle={GlobalStyle.BookMark}
-                        form={[<BsBookmark key={"bookmark"} />]}
+                        form={[<BookmarkIcon key={"bookmark"} />]}
                     />
                 </View>
+
                 <View style={{ width: 250, height: 50, justifyContent:'center', alignItems:"center", position:"relative", top:380, marginTop:40, marginBottom:26}}>
                     <Image source={barcarrousel}  />
                 </View>
+
                 <Text style={{ fontSize:20, alignSelf:"flex-start", color:"#ffffff", position:"relative", top:355, marginTop:10, marginBottom:10, zIndex:2  }}>Recomendações para Você</Text>
+                
                 <View key={5} style={GlobalStyle.ContainerSeries}>
                     <ScrollView key={"scroll"} horizontal showsHorizontalScrollIndicator={false} style={{width:"100%"}}>
                         <CardForm key={6} containerStyle={GlobalStyle.CardSeries} form={[<Image key={"s1"} source={{ uri: "https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=1200,height=675/catalog/crunchyroll/a249096c7812deb8c3c2c907173f3774.jpg" }} style={{ width:200, height:250 }} />, <Text style={{fontSize: 16, color:"#ffffff"}} >One Piece</Text>]} />

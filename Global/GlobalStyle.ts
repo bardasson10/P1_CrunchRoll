@@ -135,7 +135,8 @@ export const GlobalStyle = StyleSheet.create({
         flexDirection:"column",
         fontFamily: "MsTrebuchet",
         backgroundColor: "#000000",
-        marginRight: 15,
+        marginRight: 5,
+        marginLeft: 5,
         gap: 3,
     },
 });
