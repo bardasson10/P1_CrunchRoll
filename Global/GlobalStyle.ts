@@ -1,16 +1,33 @@
-import { Button, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 export const GlobalStyle = StyleSheet.create({
     containerBody: {
         backgroundColor: "#000000",
-        flex: 1,
+        height: "100%",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        color:"#ff640a",
+        color: "#ff640a",
+        fontFamily: "MsTrebuchet",
+        padding: 0,
+        margin: 0,
+    },
+    header: {
+        color: "#ffffff",
+        padding: 20,
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 5,
+        display: "flex",
+        flexDirection: "row",
+        margin: 0,
+        position:"absolute",
+        top: 0,
         fontFamily:"MsTrebuchet",
-        padding: 10
+        fontSize: 28,
     },
 
     bodyTexts: {
@@ -25,6 +42,8 @@ export const GlobalStyle = StyleSheet.create({
         position: "absolute",
         top: 95,
         marginTop: 20,
+        padding: 20,
+        margin: 20,
         height: 350,
     },
     buttonLogin: {
@@ -51,5 +70,72 @@ export const GlobalStyle = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         top: -30,
+    },
+    containerCardPhoto: {
+        width: "100%",
+        alignItems: "center",
+        position: "absolute",
+        top: 72,
+        margin: 0,
+        height: 500,
+    },
+    CardImage: {
+        width: "100%",
+        height: 500,
+    },
+    ContainerPlay:{
+        position: "absolute",
+        alignItems: "center",
+        justifyContent: "center",
+        display: "flex",
+        flexDirection: "row",
+        gap: 15,
+        top: 580,
+        width: "100%",
+        height: 50,
+    },
+    watchButton:{
+        width: "80%",
+        backgroundColor: "#ff640a",
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        fontWeight: 900,
+
+
+    },
+    PlayIcon:{
+        position: "absolute",
+        left: 30,
+        fontSize: 30,
+        color: "#000000",
+    },
+    BookMark:{
+        borderColor: "#ff640a",
+        backgroundColor: "#000000",
+        fontWeight: 900,
+        borderWidth: 2,
+        fontSize: 25,
+        padding: 10,
+    },
+    ContainerSeries:{
+        display: "flex",
+        backgroundColor: "#000000",
+        flexDirection: "row",
+        gap: 80,
+        alignItems: "center",
+        position: "relative",
+        margin: 0,
+        width: "100%",
+        top: 350,
+    },
+    CardSeries:{
+        width: "auto",
+        display: "flex",
+        flexDirection:"column",
+        fontFamily: "MsTrebuchet",
+        backgroundColor: "#000000",
+        marginRight: 15,
+        gap: 3,
     },
 });
